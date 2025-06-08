@@ -4,12 +4,7 @@
   stateVersion,
   ...
 }: {
-  networking = {
-    hostName = hostname;
-    useNetworkd = lib.mkDefault true;
-    firewall.enable = lib.mkDefault false;
-  };
-
+  networking.hostName = hostname;
   system.stateVersion = stateVersion;
 
   wsl = {
@@ -29,10 +24,7 @@
         options = "metadata,umask=22,fmask=11";
         mountFsTab = true;
       };
-      network = {
-        generateHosts = false;
-        generateResolvConf = true;
-      };
+      network.generateHosts = false;
       shutdown.enabled = true;
     };
   };
