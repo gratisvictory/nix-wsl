@@ -34,13 +34,13 @@ alias batdiff = git diff --name-only --diff-filter=d | xargs bat --diff
 alias batman = bat -l man -p
 def nixfullupgrade [] {
     echo "🔄 Updating flake..."
-    if (do { flakeup } | complete).exit_code != 0 { return 1 }
+    flakeup
 
     echo "🧹 Cleaning old generations..."
-    if (do { nixcollect } | complete).exit_code != 0 { return 1 }
+    nixcollect
 
     echo "🗑️ Cleaning Nix store..."
-    if (do { storedel } | complete).exit_code != 0 { return 1 }
+    storedel
 
     echo "🔁 Rebuilding and rebooting..."
     flakereboot
