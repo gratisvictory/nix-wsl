@@ -9,8 +9,8 @@ alias storedel = sudo nix-store --gc
 alias open = wsl-open
 alias one = onefetch
 alias graph = git-graph
-alias lg = lazygit
-alias ld = lazydocker
+alias lgit = lazygit
+alias ldocker = lazydocker
 alias ls = eza
 alias ll = eza -l
 alias la = eza -la
@@ -32,3 +32,16 @@ alias batx = bat --language=xml
 alias batm = bat --style=plain --language=markdown
 alias batdiff = git diff --name-only --diff-filter=d | xargs bat --diff
 alias batman = bat -l man -p
+def nixfullupgrade [] {
+    echo "🔄 Updating flake..."
+    if (do { flakeup } | complete).exit_code != 0 { return 1 }
+
+    echo "🧹 Cleaning old generations..."
+    if (do { nixcollect } | complete).exit_code != 0 { return 1 }
+
+    echo "🗑️ Cleaning Nix store..."
+    if (do { storedel } | complete).exit_code != 0 { return 1 }
+
+    echo "🔁 Rebuilding and rebooting..."
+    flakereboot
+}
