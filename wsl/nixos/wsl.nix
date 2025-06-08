@@ -24,7 +24,10 @@
         options = "metadata,umask=22,fmask=11";
         mountFsTab = true;
       };
-      network.generateHosts = false;
+      network = {
+        generateHosts = false;
+        generateResolvConf = true;
+      };
       shutdown.enabled = true;
     };
   };
