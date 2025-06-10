@@ -2,7 +2,7 @@
   programs.git = {
     enable = true;
     userName = "gratisvictory";
-    userEmail = "gratisvictory.dev@proton.me";
+    userEmail = "gratisvictory@gmail.com";
 
     delta = {
       enable = true;
@@ -111,33 +111,9 @@
     ".config/git/gratisvictory.gitconfig".text = ''
       [user]
         name = "gratisvictory"
-        email = "gratisvictory.dev@proton.me"
+        email = "gratisvictory@gmail.com"
       [core]
         sshCommand = "ssh github.com-gratisvictory"
-      [commit]
-        gpgSign = true
-      [tag]
-        gpgSign = true
-    '';
-
-    ".config/git/alexborzov.gitconfig".text = ''
-      [user]
-        name = "alexborzov"
-        email = "alex.borzov@proton.me"
-      [core]
-        sshCommand = "ssh github.com-alexborzov"
-      [commit]
-        gpgSign = true
-      [tag]
-        gpgSign = true
-    '';
-
-    ".config/git/demonicattack.gitconfig".text = ''
-      [user]
-        name = "demonicattack"
-        email = "demonicattack@proton.me"
-      [core]
-        sshCommand = "ssh github.com-demonicattack"
       [commit]
         gpgSign = true
       [tag]
