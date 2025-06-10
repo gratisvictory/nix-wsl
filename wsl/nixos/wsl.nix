@@ -15,7 +15,7 @@
 
     wslConf = {
       interop = {
-        enable = true;
+        enabled = true;
         appendWindowsPath = false;
       };
       automount = {
@@ -28,7 +28,6 @@
         generateHosts = false;
         generateResolvConf = true;
       };
-      shutdown.enabled = true;
     };
   };
 }
