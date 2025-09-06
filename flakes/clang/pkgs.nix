@@ -14,10 +14,13 @@ with pkgs; [
 
   # --- Тестирование и покрытие ---
   check
+  subunit
+  gtest
   lcov
+  gcovr
 
   ncurses
-
+  
   # --- Справочная информация ---
   man-pages
 ]
