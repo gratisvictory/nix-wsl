@@ -86,6 +86,7 @@
     git-graph
     delta
     gh
+    claude-code
 
     # --- Shell ---
     nushell
@@ -122,5 +123,6 @@
     lazydocker
     onefetch
     zoxide
+    xdg-utils
   ];
 }

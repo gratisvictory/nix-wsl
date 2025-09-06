@@ -80,7 +80,7 @@
         };
       };
 
-      aliases = {
+      alias = {
         whoami = "! git config user.name && git config user.email && git config core.sshCommand";
         st = "status -sb";
         last = "log -1 HEAD --stat";
@@ -121,29 +121,139 @@
     '';
 
     ".gitignore".text = ''
-      # IDE
-      .idea/
-      .vscode/
-      *.sublime-*
+            # --- Build Outputs ---
+      /.next/
+      /out/
+      /build
+      /dist
+      /dist-ssr
+      /tmp
+      /out-tsc
+      *.bundle.js
+      *.chunk.js
+      *.min.js
+      *.min.css
 
-      # OS
+      # --- Dependencies ---
+      /node_modules
+      /.pnp
+      .pnp.*
+      .yarn/*
+      !.yarn/patches
+      !.yarn/plugins
+      !.yarn/releases
+      !.yarn/versions
+
+      # --- Environment Variables ---
+      .env*
+      .env*.local
+      !.env.example
+      *.local
+
+      # --- Package Manager Files ---
+      npm-debug.log*
+      yarn-debug.log*
+      yarn-error.log*
+      pnpm-debug.log*
+      lerna-debug.log*
+      package-lock.json
+      yarn.lock
+      bun.lock
+      pnpm-lock.yaml
+
+      # --- TypeScript ---
+      *.tsbuildinfo
+      next-env.d.ts
+      vite-env.d.ts
+      react-env.d.ts
+      **/routeTree.gen.ts
+      .tanstack
+      .firebase
+      telegram-api.ts
+      # --- Testing and Coverage ---
+      /coverage
+      .nyc_output/
+      /libpeerconnection.log
+      testem.log
+
+      # --- IDE and Editors ---
+      # VSCode
+      .vscode/*
+      !.vscode/settings.json
+      !.vscode/tasks.json
+      !.vscode/launch.json
+      !.vscode/extensions.json
+
+      # JetBrains IDEs
+      .idea/
+      *.iml
+      *.ipr
+      *.iws
+
+      # Other editors
+      .project
+      .classpath
+      .c9/
+      *.launch
+      .settings/
+      *.sublime-workspace
+      *.suo
+      *.ntvs*
+      *.njsproj
+      *.sln
+      *.sw?
+
+      # --- Nx Specific ---
+      .nx/cache
+      .nx/workspace-data
+      .cursor/rules/nx-rules.mdc
+      .github/instructions/nx.instructions.md
+
+      # --- Temporary Files ---
+      *.tmp
+      *.temp
+      .cache/
+      /.sass-cache
+      /connect.lock
+      /typings
+      logs
+      *.log
+
+      # --- System Files ---
       .DS_Store
       Thumbs.db
+      *.pem
 
-      # Node
-      node_modules/
-      npm-debug.log
+      # --- Deployment ---
+      .vercel
+      .netlify
 
-      # Python
-      __pycache__/
-      *.py[cod]
-      .env
-      .venv
+      # --- Sensitive Data ---
+      *config.private.*
+      *credentials.*
+      *secret.*
+      *token.*
+      *key.*
 
-      # Nix
-      .envrc
-      result
-      .direnv
+      # --- Backup Files ---
+      *.bak
+      *.backup
+      *~
+
+      # --- Generated files ---
+      .generated/
+      generated/
+
+      # --- Database files ---
+      *.sqlite
+      *.sqlite3
+      *.db
+
+      # --- Debug files ---
+      .debug/
+
+      # --- Certificates files ---
+      certificates
     '';
   };
 }
